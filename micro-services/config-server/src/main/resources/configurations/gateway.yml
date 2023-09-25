@@ -1,0 +1,44 @@
+eureka:
+  client:
+    register-with-eureka: false
+
+server:
+  port: 8222
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: authentication
+          uri: http://localhost:8090
+          predicates:
+            - Path=/api/authenticate/**
+        - id: registration
+          uri: http://localhost:8091
+          predicates:
+            - Path=/api/register/**
+        - id: telco
+          uri: http://localhost:8092
+          predicates:
+            - Path=/api/telco/**
+        - id: billRetrieval
+          uri: http://localhost:8093
+          predicates:
+            - Path=/api/bill-retrieval/**
+        - id: billPayment
+          uri: http://localhost:8094
+          predicates:
+            - Path=/api/bill-payment/**
+        - id: notification
+          uri: http://localhost:8095
+          predicates:
+            - Path=/api/notification/**
+        - id: chat
+          uri: http://localhost:8096
+          predicates:
+            - Path=/api/chat/**
