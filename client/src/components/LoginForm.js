@@ -11,7 +11,7 @@ function LoginForm() {
     const navigate = useNavigate();
 
     const navigateToRegister = () => {
-        navigate('/');
+        navigate('/registration');
     };
 
     // Handle form input changes

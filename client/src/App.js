@@ -3,7 +3,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import RegistrationForm from './components/RegistrationForm'; // Import the RegistrationForm component
 import LoginForm from './components/LoginForm'; // Import the LoginForm component
-import NotFound from './components/NotFound'; // Create a NotFound component to handle unknown routes
+import Dashboard from './components/Dashboard'; // Import the Dashboard component
+import Services from './components/Services'; // Import the Services component
+import Bills from './components/Bills'; // Import the Bills component
 
 function App() {
   return (
@@ -15,14 +17,11 @@ function App() {
 
         <Router>
             <Routes>
-              {/* Define the root route */}
-              <Route exact path="/" element={<RegistrationForm/>} />
-
-              {/* Define the login route */}
-              <Route path="/login" element={<LoginForm/>} />
-
-              {/* Handle unknown routes */}
-              <Route element={<NotFound/>} />
+            <Route exact path="/" element={<LoginForm />} />
+            <Route path="/registration" element={<RegistrationForm />} />
+            <Route path="/dashboard" element={<Dashboard/>} />
+            <Route path="/services" element={<Services/>} />
+            <Route path="/bills" element={<Bills/>} />
           </Routes>
         </Router>
 

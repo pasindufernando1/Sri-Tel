@@ -13,7 +13,7 @@ function RegistrationForm() {
     const navigate = useNavigate();
 
     const navigateToLogin = () => {
-        navigate('/login');
+        navigate('/');
     };
 
     // Handle form input changes
