@@ -7,7 +7,10 @@ import Dashboard from './components/Dashboard'; // Import the Dashboard componen
 import Services from './components/Services'; // Import the Services component
 import Bills from './components/Bills'; // Import the Bills component
 import PaymentHistory from './components/PaymentHistory'; // Import the PaymentHistory component
-import PayNow from './components/PayNow';
+import PayNow from './components/PayNow'; // Import the PayNow component
+import Chat from './components/chat'; // Import the Chat component
+import Profile from './components/Profile'; // Import the Profile component
+import Help from './components/Help'; // Import the Help component
 
 function App() {
   return (
@@ -26,6 +29,9 @@ function App() {
             <Route path="/bills" element={<Bills/>} />
             <Route path="/payment-history" element={<PaymentHistory/>} />
             <Route path="/pay-now" element={<PayNow/>} />
+            <Route path="/chat" element={<Chat/>} />
+            <Route path="/profile" element={<Profile/>} />
+            <Route path="/help" element={<Help/>} />
           </Routes>
         </Router>
 
