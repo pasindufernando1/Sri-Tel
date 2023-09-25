@@ -1,30 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/style.css';
 
 const data = [
     { service: "Roaming", status: "Active", action: "" },
     { service: "Data top ups", status: "Active", action: "" },
-    { service: "Ringtone", status: "Deactive", action: "" },
-    { service: "Other services", status: "Active", action: "" },
+    { service: "Other services", status: "Deactive", action: "" },
+    { service: "Ringtone", status: "Test Song", action: "Change" },
 ];
 
-const handleAction = (action, serviceName) => {
-    // Display a confirmation dialog
-    const isConfirmed = window.confirm(`Are you sure you want to ${action} ${serviceName}?`);
-
-    // If the user confirms, update the data array based on the action
-    if (isConfirmed) {
-        console.log(`Clicked on ${serviceName} to ${action}`);
-        const updatedData = [...data];
-        const index = updatedData.findIndex(item => item.service === serviceName);
-        if (index !== -1) {
-            updatedData[index].status = action === 'Activate' ? 'Active' : 'Deactive';
-            // You can update the state or perform any other necessary actions here
-        }
-    }
-};
-
 function Services() {
+    const [selectedSong, setSelectedSong] = useState('');
+    const [showSongSelector, setShowSongSelector] = useState(false);
+
+    // Function to handle changing the status data to the selected song
+    const handleSongChange = () => {
+        // Check if a song has been selected
+        if (!selectedSong) {
+            alert('Please select a song');
+            return;
+        }
+        // confirm the song change
+        const confirmChange = window.confirm('Are you sure you want to change the song?');
+        if (!confirmChange) {
+            return;
+        }
+
+        // Update the status data with the selected song
+        const updatedData = [...data];
+        const index = updatedData.findIndex(item => item.service === "Ringtone");
+        if (index !== -1) {
+            updatedData[index].status = selectedSong;
+        }
+        // Hide the song selector
+        setShowSongSelector(false);
+    };
+
     return (
         <div className="form-container">
             <h2>Services</h2>
@@ -42,17 +52,17 @@ function Services() {
                             {data.map((val, key) => (
                                 <tr key={key}>
                                     <td>{val.service}</td>
-                                    <td style={{ color: val.status === 'Active' ? 'green' : 'red' }}>
+                                    <td style={{ color: val.status === 'Deactive' ? 'red' : 'green' }}>
                                         {val.status}
                                     </td>
                                     <td>
-                                        {val.status === 'Active' ? (
-                                            <button onClick={() => handleAction('Deactivate', val.service)}>
-                                                Deactivate
+                                        {val.service === 'Ringtone' && val.action === 'Change' ? (
+                                            <button onClick={() => setShowSongSelector(true)}>
+                                                Change
                                             </button>
                                         ) : (
-                                            <button onClick={() => handleAction('Activate', val.service)}>
-                                                Activate
+                                            <button>
+                                                {val.status === 'Active' ? 'Deactivate' : 'Activate'}
                                             </button>
                                         )}
                                     </td>
@@ -62,6 +72,20 @@ function Services() {
                     </table>
                 </div>
             </div>
+
+            {/* Song Selector */}
+            {showSongSelector && (
+                <div className="song-selector"><br/>
+                    <h3>Available Songs List:</h3>
+                    <select onChange={(e) => setSelectedSong(e.target.value)}>
+                        <option value="">Select a song</option>
+                        <option value="Song 1">Test Song1</option>
+                        <option value="Song 2">Test Song2</option>
+                        <option value="Song 3">Test Song3</option>
+                    </select>&nbsp;
+                    <button onClick={handleSongChange}>Confirm</button>
+                </div>
+            )}
         </div>
     );
 }

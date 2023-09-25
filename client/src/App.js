@@ -10,7 +10,8 @@ import PaymentHistory from './components/PaymentHistory'; // Import the PaymentH
 import PayNow from './components/PayNow'; // Import the PayNow component
 import Chat from './components/chat'; // Import the Chat component
 import Profile from './components/Profile'; // Import the Profile component
-import Help from './components/Help'; // Import the Help component
+import Help from './components/Help'; // Import the Help component\
+import Notifications from './components/Notifications'; // Import the Notifications component
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/chat" element={<Chat/>} />
             <Route path="/profile" element={<Profile/>} />
             <Route path="/help" element={<Help/>} />
+            <Route path="/notifications" element={<Notifications/>} />
           </Routes>
         </Router>
 

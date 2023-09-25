@@ -18,6 +18,10 @@ function Dashboard() {
         navigate('/chat');
     };
 
+    const navigateToNotifications = () => {
+        navigate('/notifications');
+    };
+
     const navigateToProfile = () => {
         navigate('/profile');
     };
@@ -43,6 +47,9 @@ function Dashboard() {
                 </div>
                 <div>
                     <button onClick={navigateToChat}>Chat</button>
+                </div>
+                <div>
+                    <button onClick={navigateToNotifications}>Notifications - <label>2</label></button>
                 </div>
                 <div>
                     <button onClick={navigateToProfile}>Profile</button>
