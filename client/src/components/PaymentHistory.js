@@ -3,30 +3,25 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/style.css';
 
 const data = [
-    { billNo: "test1", billName: "Test Bill", dueDate: "10-11-2023", amount: "8000 LKR", action: "" },
-    { billNo: "xxx", billName: "xxx", dueDate: "3-11-2023", amount: "xxx", action: "" },
-    { billNo: "xxx", billName: "xxx", dueDate: "7-10-2023", amount: "xxx", action: "" },
-    { billNo: "xxx", billName: "xxx", dueDate: "24-10-2023", amount: "xxx", action: "" },
+    { billNo: "xxx", billName: "xxx", dueDate: "10-11-2023", amount: "xxx", payDate: "1-11-2023" },
+    { billNo: "xxx", billName: "xxx", dueDate: "3-11-2023", amount: "xxx", payDate: "1-11-2023" },
+    { billNo: "xxx", billName: "xxx", dueDate: "7-10-2023", amount: "xxx", payDate: "1-10-2023" },
+    { billNo: "xxx", billName: "xxx", dueDate: "24-10-2023", amount: "xxx", payDate: "1-10-2023" },
 ];
 
-function Bills() {
+function PaymentHistory() {
+
     const navigate = useNavigate();
 
-    const navigateToHistory = () => {
-        navigate('/payment-history');
-    };
-
-    // Function to handle the "Pay Now" button click
-    const handlePayNowClick = (billData) => {
-        // Navigate to the pay-now.js page and pass the billData as state
-        navigate('/pay-now', { state: { billData } });
+    const navigateToBills = () => {
+        navigate('/bills');
     };
 
     return (
         <div className="form-container">
-            <h2>Bill Viewing & Payment</h2>
+            <h2>Payment History</h2>
             <div>
-                <button onClick={navigateToHistory}>View Payment History</button>
+                <button onClick={navigateToBills}>View Current Bills</button>
             </div><br />
             <div className="form form-dashboard table-bill">
                 <div>
@@ -37,7 +32,7 @@ function Bills() {
                                 <th>Bill name</th>
                                 <th>Due date</th>
                                 <th>Amount</th>
-                                <th>Action</th>
+                                <th>Payment Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,9 +42,7 @@ function Bills() {
                                     <td>{val.billName}</td>
                                     <td>{val.dueDate}</td>
                                     <td>{val.amount}</td>
-                                    <td>
-                                        <button onClick={() => handlePayNowClick(val)}>Pay now</button>
-                                    </td>
+                                    <td>{val.payDate}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -60,4 +53,4 @@ function Bills() {
     );
 }
 
-export default Bills;
+export default PaymentHistory;

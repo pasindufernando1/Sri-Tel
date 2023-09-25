@@ -6,6 +6,8 @@ import LoginForm from './components/LoginForm'; // Import the LoginForm componen
 import Dashboard from './components/Dashboard'; // Import the Dashboard component
 import Services from './components/Services'; // Import the Services component
 import Bills from './components/Bills'; // Import the Bills component
+import PaymentHistory from './components/PaymentHistory'; // Import the PaymentHistory component
+import PayNow from './components/PayNow';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route path="/dashboard" element={<Dashboard/>} />
             <Route path="/services" element={<Services/>} />
             <Route path="/bills" element={<Bills/>} />
+            <Route path="/payment-history" element={<PaymentHistory/>} />
+            <Route path="/pay-now" element={<PayNow/>} />
           </Routes>
         </Router>
 
