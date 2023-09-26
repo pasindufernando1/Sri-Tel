@@ -99,3 +99,7 @@ td, th {
 .message input[type="submit"]:hover {
     background-color: #2ea2cc;
 }
+
+.default-questions button{
+    margin-right: 10px;
+}
