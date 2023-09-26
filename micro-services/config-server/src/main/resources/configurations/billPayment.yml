@@ -7,7 +7,7 @@ eureka:
 
 
 server:
-  port: 8094
+  port: 8099
 spring:
   application:
     name: billPayment

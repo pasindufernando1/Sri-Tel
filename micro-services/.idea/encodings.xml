@@ -8,8 +8,14 @@
     <file url="file://$PROJECT_DIR$/config-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/discovery/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/notification/email/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/notification/push-alert/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/notification/sms/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/notification/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/registartion/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/telco/ringing-tone/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/telco/roaming/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/telco/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/telco/topup/src/main/java" charset="UTF-8" />
   </component>
 </project>

@@ -7,18 +7,26 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="config-server" />
-        <module name="notification" />
-        <module name="telco" />
-        <module name="discovery" />
+        <module name="push-alert" />
+        <module name="roaming" />
         <module name="bill-retrival" />
-        <module name="chat" />
-        <module name="bill-payment" />
+        <module name="topup" />
         <module name="registartion" />
+        <module name="config-server" />
+        <module name="ringing-tone" />
+        <module name="discovery" />
+        <module name="chat" />
+        <module name="sms" />
+        <module name="bill-payment" />
         <module name="gateway" />
+        <module name="email" />
         <module name="authentication" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="notification" target="17" />
+      <module name="telco" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -28,10 +36,16 @@
       <module name="chat" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="discovery" options="-parameters" />
+      <module name="email" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="notification" options="-parameters" />
+      <module name="push-alert" options="-parameters" />
       <module name="registartion" options="-parameters" />
+      <module name="ringing-tone" options="-parameters" />
+      <module name="roaming" options="-parameters" />
+      <module name="sms" options="-parameters" />
       <module name="telco" options="-parameters" />
+      <module name="topup" options="-parameters" />
     </option>
   </component>
 </project>

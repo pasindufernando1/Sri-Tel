@@ -22,23 +22,39 @@ spring:
           uri: http://localhost:8091
           predicates:
             - Path=/api/register/**
-        - id: telco
+        - id: roaming
           uri: http://localhost:8092
           predicates:
-            - Path=/api/telco/**
-        - id: billRetrieval
+            - Path=/api/roaming/**
+        - id: ringingTone
           uri: http://localhost:8093
           predicates:
-            - Path=/api/bill-retrieval/**
-        - id: billPayment
+            - Path=/api/ringing-tone/**
+        - id: topup
           uri: http://localhost:8094
           predicates:
-            - Path=/api/bill-payment/**
-        - id: notification
+            - Path=/api/topup/**
+        - id: billRetrieval
           uri: http://localhost:8095
           predicates:
-            - Path=/api/notification/**
-        - id: chat
+            - Path=/api/bill-retrieval/**
+        - id: email
           uri: http://localhost:8096
+          predicates:
+            - Path=/api/email/**
+        - id: sms
+          uri: http://localhost:8097
+          predicates:
+            - Path=/api/sms/**
+        - id: pushAlert
+          uri: http://localhost:8098
+          predicates:
+            - Path=/api/push-alert/**
+        - id: billPayment
+          uri: http://localhost:8099
+          predicates:
+            - Path=/api/bill-payment/**
+        - id: chat
+          uri: http://localhost:9000
           predicates:
             - Path=/api/chat/**

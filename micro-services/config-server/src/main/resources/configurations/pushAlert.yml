@@ -7,10 +7,10 @@ eureka:
 
 
 server:
-  port: 9000
+  port: 8098
 spring:
   application:
-    name: chat
+    name: pushAlert
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/middleware

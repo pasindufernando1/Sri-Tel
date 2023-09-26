@@ -14,6 +14,12 @@
         <option value="$PROJECT_DIR$/chat/pom.xml" />
         <option value="$PROJECT_DIR$/notification/pom.xml" />
         <option value="$PROJECT_DIR$/registartion/pom.xml" />
+        <option value="$PROJECT_DIR$/notification/email/pom.xml" />
+        <option value="$PROJECT_DIR$/notification/push-alert/pom.xml" />
+        <option value="$PROJECT_DIR$/notification/sms/pom.xml" />
+        <option value="$PROJECT_DIR$/telco/ringing-tone/pom.xml" />
+        <option value="$PROJECT_DIR$/telco/roaming/pom.xml" />
+        <option value="$PROJECT_DIR$/telco/topup/pom.xml" />
       </list>
     </option>
   </component>

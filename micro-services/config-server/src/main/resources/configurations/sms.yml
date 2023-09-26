@@ -7,10 +7,10 @@ eureka:
 
 
 server:
-  port: 9000
+  port: 8097
 spring:
   application:
-    name: chat
+    name: sms
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/middleware
