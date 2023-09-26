@@ -7,6 +7,7 @@ function RegistrationForm() {
         firstName: '',
         lastName: '',
         email: '',
+        contactNumber: '',
         password: '',
     });
 
@@ -27,7 +28,7 @@ function RegistrationForm() {
         event.preventDefault();
 
         // Validate and send registration data to the server/API
-        const { firstName, lastName, email, password } = formData;
+        const { firstName, lastName, email, contactNumber, password } = formData;
 
         // Example: Send data to the server using fetch
         fetch('/api/register', {
@@ -35,7 +36,7 @@ function RegistrationForm() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ firstName, lastName, email, password }),
+            body: JSON.stringify({ firstName, lastName, email, contactNumber, password }),
         })
             .then(response => response.json())
             .then(data => {
@@ -77,6 +78,17 @@ function RegistrationForm() {
                         type="email"
                         name="email"
                         value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </div>
+                {/* contact number */}
+                <div>
+                    <label>Contact Number:</label>
+                    <input
+                        type="text"
+                        name="contactNumber"
+                        value={formData.contactNumber}
                         onChange={handleInputChange}
                         required
                     />

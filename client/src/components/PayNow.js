@@ -5,8 +5,8 @@ function PayNow() {
     const [formData, setFormData] = useState({
         userName: '',
         cardNumber: '',
-        exp: '',
-        code: '',
+        expirationDate: '',
+        cvv: '',
     });
 
     // State variable to control the visibility of the confirmation dialog
@@ -66,7 +66,7 @@ function PayNow() {
         event.preventDefault();
 
         // Validate and send registration data to the server/API
-        const { userName, cardNumber, exp, code } = formData;
+        const { userName, cardNumber, expirationDate, cvv } = formData;
 
         // Example: Send data to the server using fetch
         fetch('/api/register', {
@@ -74,7 +74,7 @@ function PayNow() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ userName, cardNumber, exp, code }),
+            body: JSON.stringify({ userName, cardNumber, expirationDate, cvv }),
         })
             .then(response => response.json())
             .then(data => {
@@ -122,8 +122,8 @@ function PayNow() {
                         <label>Expiration (mm/yy):</label>
                         <input
                             type="text"
-                            name="exp"
-                            value={formData.exp}
+                            name="expirationDate"
+                            value={formData.expirationDate}
                             onChange={handleInputChange}
                             required
                         />
@@ -132,8 +132,8 @@ function PayNow() {
                         <label>Security Code:</label>
                         <input
                             type="text"
-                            name="code"
-                            value={formData.code}
+                            name="cvv"
+                            value={formData.cvv}
                             onChange={handleInputChange}
                             required
                         />

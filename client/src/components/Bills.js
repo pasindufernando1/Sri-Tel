@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/style.css';
 
 const data = [
-    { billNo: "test1", billName: "Test Bill", dueDate: "10-11-2023", amount: "8000 LKR", action: "" },
+    { billNo: "test1", billName: "Test Bill", dueDate: "10-11-2023", amount: 8000, action: "" },
     { billNo: "xxx", billName: "xxx", dueDate: "3-11-2023", amount: "xxx", action: "" },
     { billNo: "xxx", billName: "xxx", dueDate: "7-10-2023", amount: "xxx", action: "" },
     { billNo: "xxx", billName: "xxx", dueDate: "24-10-2023", amount: "xxx", action: "" },
@@ -36,7 +36,7 @@ function Bills() {
                                 <th>Bill number</th>
                                 <th>Bill name</th>
                                 <th>Due date</th>
-                                <th>Amount</th>
+                                <th>Amount (LKR)</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

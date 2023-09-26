@@ -5,7 +5,7 @@ const data = [
     { service: "Roaming", status: "Active", action: "" },
     { service: "Data top ups", status: "Active", action: "" },
     { service: "Other services", status: "Deactive", action: "" },
-    { service: "Ringtone", status: "Test Song", action: "Change" },
+    { service: "Ringtone", status: "", action: "Activate", action2: "" },
 ];
 
 function Services() {
@@ -30,6 +30,10 @@ function Services() {
         const index = updatedData.findIndex(item => item.service === "Ringtone");
         if (index !== -1) {
             updatedData[index].status = selectedSong;
+            // change the action button to "Change Song"
+            updatedData[index].action = "Change";
+            // Add a new button to deactivate the song
+            updatedData[index].action2 = "Deactivate";
         }
         // Hide the song selector
         setShowSongSelector(false);
@@ -56,10 +60,19 @@ function Services() {
                                         {val.status}
                                     </td>
                                     <td>
-                                        {val.service === 'Ringtone' && val.action === 'Change' ? (
+                                        {val.service === 'Ringtone' && val.action === 'Activate' ? (
                                             <button onClick={() => setShowSongSelector(true)}>
-                                                Change
+                                                {val.action}
                                             </button>
+                                        ) : val.service === 'Ringtone' && val.action === 'Change' ? (
+                                            <div>
+                                                <button onClick={() => setShowSongSelector(true)}>
+                                                    {val.action}
+                                                </button><br/>
+                                                <button>
+                                                    {val.action2}
+                                                </button>
+                                            </div>
                                         ) : (
                                             <button>
                                                 {val.status === 'Active' ? 'Deactivate' : 'Activate'}
