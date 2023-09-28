@@ -10,7 +10,6 @@
         <module name="roaming" />
         <module name="topup" />
         <module name="bill-retrival" />
-        <module name="registartion" />
         <module name="ringing-tone" />
         <module name="config-server" />
         <module name="chat" />
@@ -22,6 +21,9 @@
         <module name="authentication" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="registartion" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
