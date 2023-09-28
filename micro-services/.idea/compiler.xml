@@ -11,13 +11,13 @@
         <module name="roaming" />
         <module name="bill-retrival" />
         <module name="topup" />
-        <module name="registartion" />
         <module name="config-server" />
         <module name="ringing-tone" />
         <module name="discovery" />
         <module name="chat" />
         <module name="sms" />
         <module name="bill-payment" />
+        <module name="registration" />
         <module name="gateway" />
         <module name="email" />
         <module name="authentication" />
@@ -40,7 +40,7 @@
       <module name="gateway" options="-parameters" />
       <module name="notification" options="-parameters" />
       <module name="push-alert" options="-parameters" />
-      <module name="registartion" options="-parameters" />
+      <module name="registration" options="-parameters" />
       <module name="ringing-tone" options="-parameters" />
       <module name="roaming" options="-parameters" />
       <module name="sms" options="-parameters" />

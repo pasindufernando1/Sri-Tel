@@ -12,7 +12,7 @@ public class RegistrationController {
 
 @GetMapping("/test")
 public String Test() {
-    return "Register Microservice Called Successfully";
+    return "Registration Service";
 }
 
 }
