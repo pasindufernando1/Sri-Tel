@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/style.css'
+import axios from 'axios'; // Import Axios
+import '../styles/style.css';
+
+const register_ULR = 'http://localhost:8090/api/authenticate/register';
 
 function RegistrationForm() {
     const [formData, setFormData] = useState({
@@ -24,28 +27,29 @@ function RegistrationForm() {
     }
 
     // Handle form submission
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         // Validate and send registration data to the server/API
         const { firstName, lastName, email, contactNumber, password } = formData;
 
-        // Example: Send data to the server using fetch
-        fetch('/api/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ firstName, lastName, email, contactNumber, password }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                // Handle response from the server (e.g., show success message, handle errors)
-                console.log(data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
+        try {
+            const response = await axios.post(register_ULR, {
+                firstName,
+                lastName,
+                email,
+                contactNumber,
+                password,
             });
+
+            // Handle response from the server (e.g., show success message, handle errors)
+            alert(response.data);
+
+            // Optionally, you can navigate to a different page after successful registration
+            navigateToLogin();
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 
     return (

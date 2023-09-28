@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/style.css'
+import axios from 'axios';
+
+const login_url = 'http://localhost:8090/api/authenticate/login'
 
 function LoginForm() {
     const [formData, setFormData] = useState({
@@ -21,29 +24,27 @@ function LoginForm() {
     }
 
     // Handle form submission
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-
+    
         // Validate and send login data to the server/API
-        const { email, password } = formData; // Use formData, not this.state
-
-        // Example: Send data to the server using fetch
-        fetch('/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                // Handle response from the server (e.g., authentication success, error handling)
-                console.log(data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
+        const { email, password } = formData;
+    
+        try {
+            const response = await axios.post(login_url, {
+                email,
+                password,
             });
-    }
+            
+            alert(response.data);
+            
+            // Handle response from the server (e.g., authentication success, error handling)
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+    
 
     const { email, password } = formData; // Use formData, not this.state
 
