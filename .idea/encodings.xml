@@ -2,7 +2,9 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Sri-Tel-Payment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Sri-Tel-Payment/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Sri-Tel-Provisioning/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Sri-Tel-Provisioning/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-services/authentication/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-services/bill-payment/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-services/bill-retrival/src/main/java" charset="UTF-8" />

@@ -1,15 +1,31 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/style.css';
+import { useEffect, useState } from 'react';
 
-const data = [
-    { billNo: "test1", billName: "Test Bill", dueDate: "10-11-2023", amount: 8000, action: "" },
-    { billNo: "xxx", billName: "xxx", dueDate: "3-11-2023", amount: "xxx", action: "" },
-    { billNo: "xxx", billName: "xxx", dueDate: "7-10-2023", amount: "xxx", action: "" },
-    { billNo: "xxx", billName: "xxx", dueDate: "24-10-2023", amount: "xxx", action: "" },
-];
+import axios from 'axios';
+
+const bill_URL = 'http://localhost:8222/api/bill-retrieval/pending-bills';
 
 function Bills() {
+    const [Data, setResponseData] = useState([]);
+
+    useEffect(() => {
+        axios.get(bill_URL)
+          .then(response => {
+            // Access the data array from the response
+            const data = response.data;
+            setResponseData(data);
+            console.log(data)
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }, []);
+    
+
+
+
     const navigate = useNavigate();
 
     const navigateToHistory = () => {
@@ -41,17 +57,23 @@ function Bills() {
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map((val, key) => (
-                                <tr key={key}>
-                                    <td>{val.billNo}</td>
-                                    <td>{val.billName}</td>
-                                    <td>{val.dueDate}</td>
-                                    <td>{val.amount}</td>
-                                    <td>
-                                        <button onClick={() => handlePayNowClick(val)}>Pay now</button>
-                                    </td>
+                            {Data.length > 0 ? (
+                                Data.map((val, key) => (
+                                    <tr key={key}>
+                                        <td>{val.billNumber}</td>
+                                        <td>{val.billName}</td>
+                                        <td>{val.dueDate}</td>
+                                        <td>{val.amount}</td>
+                                        <td>
+                                            <button onClick={() => handlePayNowClick(val)}>Pay now</button>
+                                        </td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="5">No Bills to Pay available</td>
                                 </tr>
-                            ))}
+                            )}
                         </tbody>
                     </table>
                 </div>

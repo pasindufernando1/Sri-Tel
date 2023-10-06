@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+const payment_ULR = 'http://localhost:8099/api/bill-payment';
 
 function PayNow() {
     const [formData, setFormData] = useState({
-        userName: '',
+        cardHolderName: '',
         cardNumber: '',
-        expirationDate: '',
-        cvv: '',
+        cardExpiry: '',
+        cardCVV: '',
     });
 
     // State variable to control the visibility of the confirmation dialog
@@ -32,7 +35,7 @@ function PayNow() {
     // Function to show the confirmation dialog
     const showConfirmationDialog = () => {
         // Check if any of the form fields is empty
-        if (!formData.userName || !formData.cardNumber || !formData.exp || !formData.code) {
+        if (!formData.cardHolderName || !formData.cardNumber || !formData.cardExpiry || !formData.cardCVV) {
             // You can show an error message or handle this case as needed
             alert("Please fill in all the required fields before proceeding.");
         } else {
@@ -66,24 +69,24 @@ function PayNow() {
         event.preventDefault();
 
         // Validate and send registration data to the server/API
-        const { userName, cardNumber, expirationDate, cvv } = formData;
+        const { cardHolderName, cardNumber, cardExpiry, cardCVV,} = formData;
 
-        // Example: Send data to the server using fetch
-        fetch('/api/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ userName, cardNumber, expirationDate, cvv }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                // Handle response from the server (e.g., show success message, handle errors)
-                console.log(data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
+        try {
+            const response = axios.post(payment_ULR, {
+                cardHolderName,
+                cardNumber,
+                cardExpiry,
+                cardCVV,
             });
+
+            // Handle response from the server (e.g., show success message, handle errors)
+            alert(response.data);
+
+            // Optionally, you can navigate to a different page after successful registration
+            navigate('/bills');
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 
     // Render the payment details using billData
@@ -103,7 +106,7 @@ function PayNow() {
                         <input
                             type="text"
                             name="userName"
-                            value={formData.userName}
+                            value={formData.cardHolderName}
                             onChange={handleInputChange}
                             required
                         />
@@ -123,7 +126,7 @@ function PayNow() {
                         <input
                             type="text"
                             name="expirationDate"
-                            value={formData.expirationDate}
+                            value={formData.cardExpiry}
                             onChange={handleInputChange}
                             required
                         />
@@ -133,7 +136,7 @@ function PayNow() {
                         <input
                             type="text"
                             name="cvv"
-                            value={formData.cvv}
+                            value={formData.cardCVV}
                             onChange={handleInputChange}
                             required
                         />

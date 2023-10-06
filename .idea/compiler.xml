@@ -9,11 +9,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="push-alert" />
         <module name="roaming" />
+        <module name="sritel" />
         <module name="topup" />
         <module name="bill-retrival" />
         <module name="ringing-tone" />
-        <module name="config-server" />
         <module name="Sri-Tel-Provisioning" />
+        <module name="config-server" />
         <module name="chat" />
         <module name="discovery" />
         <module name="sms" />
@@ -45,6 +46,7 @@
       <module name="ringing-tone" options="-parameters" />
       <module name="roaming" options="-parameters" />
       <module name="sms" options="-parameters" />
+      <module name="sritel" options="-parameters" />
       <module name="topup" options="-parameters" />
     </option>
   </component>

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/style.css'
 import axios from 'axios';
 
-const login_url = 'http://localhost:8090/api/authenticate/login'
+const login_url = 'http://localhost:8222/api/authenticate/login'
 
 function LoginForm() {
     const [formData, setFormData] = useState({
@@ -26,7 +26,8 @@ function LoginForm() {
     // Handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
-    
+
+        
         // Validate and send login data to the server/API
         const { email, password } = formData;
     
@@ -36,8 +37,8 @@ function LoginForm() {
                 password,
             });
             
-            alert(response.data);
-            
+            alert("Login success");
+            navigate('/dashboard');
             // Handle response from the server (e.g., authentication success, error handling)
             console.log(response.data);
         } catch (error) {

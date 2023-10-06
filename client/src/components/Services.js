@@ -28,7 +28,7 @@ function Services() {
                 }
                 setData([...updatedData]);
 
-                const response = await axios.post('http://localhost:8093/api/ringing-tone/deactivate-ringing-tone', {
+                const response = await axios.post('http://localhost:8222/api/ringing-tone/deactivate-ringing-tone', {
                     service: 'Ringtone',
                 });
 

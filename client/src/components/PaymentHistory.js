@@ -1,15 +1,28 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/style.css';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const data = [
-    { billNo: "xxx", billName: "xxx", dueDate: "10-11-2023", amount: "xxx", payDate: "1-11-2023" },
-    { billNo: "xxx", billName: "xxx", dueDate: "3-11-2023", amount: "xxx", payDate: "1-11-2023" },
-    { billNo: "xxx", billName: "xxx", dueDate: "7-10-2023", amount: "xxx", payDate: "1-10-2023" },
-    { billNo: "xxx", billName: "xxx", dueDate: "24-10-2023", amount: "xxx", payDate: "1-10-2023" },
-];
+const bill_URL = 'http://localhost:8222/api/bill-retrieval/paid-bills';
 
 function PaymentHistory() {
+
+    const [Data, setResponseData] = useState([]);
+
+    useEffect(() => {
+        axios.get(bill_URL)
+          .then(response => {
+            // Access the data array from the response
+            const data = response.data;
+            setResponseData(data);
+            console.log(data)
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }, []);
+    
 
     const navigate = useNavigate();
 
@@ -36,13 +49,13 @@ function PaymentHistory() {
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map((val, key) => (
+                            {Data.map((val, key) => (
                                 <tr key={key}>
-                                    <td>{val.billNo}</td>
+                                    <td>{val.billNumber}</td>
                                     <td>{val.billName}</td>
                                     <td>{val.dueDate}</td>
                                     <td>{val.amount}</td>
-                                    <td>{val.payDate}</td>
+                                    <td>{val.paidDate}</td>
                                 </tr>
                             ))}
                         </tbody>
