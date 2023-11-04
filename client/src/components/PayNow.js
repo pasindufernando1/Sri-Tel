@@ -91,6 +91,8 @@ function PayNow() {
 
     // Render the payment details using billData
     return (
+        <>
+        <a href="/dashboard" className="back-to-dashboard center" >Back to Dashboard</a>
         <div>
             <h2>Payment Details</h2>
             <div>
@@ -153,6 +155,7 @@ function PayNow() {
                 )}
             </div>
         </div>
+        </>
     );
 }
 

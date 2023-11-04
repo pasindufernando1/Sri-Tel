@@ -3,6 +3,8 @@ import React from 'react';
 function Notifications() {
 
     return (
+        <>
+        <a href="/dashboard" className="back-to-dashboard center" >Back to Dashboard</a>
         <div className="notifications-page">
             <h2>Notifications</h2>
 
@@ -16,6 +18,7 @@ function Notifications() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

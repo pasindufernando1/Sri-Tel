@@ -58,7 +58,7 @@ td, th {
 }
 
 .chat-messages {
-    height: 300px;
+    height: 400px;
     overflow-y: auto;
 }
 
@@ -100,7 +100,19 @@ td, th {
     background-color: #2ea2cc;
 }
 
-.default-questions button{
+.default-questions button {
     margin-right: 10px;
     margin-bottom: 10px;
+}
+
+.back-to-dashboard {
+    display: flex;
+    margin-left: 23rem;
+    margin-top: 1rem;
+}
+
+.center {
+    display: grid;
+    margin: auto;
+    margin-top: 1rem;
 }

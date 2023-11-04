@@ -38,6 +38,8 @@ function Profile() {
     };
 
     return (
+        <>
+        <a href="/dashboard" className="back-to-dashboard center" >Back to Dashboard</a>
         <div className="form-container">
             <h2>User Profile</h2>
             <div className="form">
@@ -93,6 +95,7 @@ function Profile() {
                 )}
             </div>
         </div>
+        </>
     );
 }
 

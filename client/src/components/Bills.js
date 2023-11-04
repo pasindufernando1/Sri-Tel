@@ -39,6 +39,8 @@ function Bills() {
     };
 
     return (
+        <>
+        <a href="/dashboard" className="back-to-dashboard" >Back to Dashboard</a>
         <div className="form-container">
             <h2>Bill Viewing & Payment</h2>
             <div>
@@ -79,6 +81,7 @@ function Bills() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

@@ -15,7 +15,7 @@ function Chat() {
   ];
 
   const [chatMessages, setChatMessages] = useState([
-    { text:"Hello! How can I help you", className: "message" }
+    { text:"Hello! How can I help you? :)", className: "message" }
   ]);
 
   const handleQuestionClick = (question, id) => {
@@ -39,6 +39,8 @@ function Chat() {
   };
 
   return (
+    <>
+    <a href="/dashboard" className="back-to-dashboard center" >Back to Dashboard</a>
     <div>
       <h2>Chat</h2>
       <div className="chat-container">
@@ -64,6 +66,7 @@ function Chat() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

@@ -31,6 +31,8 @@ function PaymentHistory() {
     };
 
     return (
+        <>
+        <a href="/dashboard" className="back-to-dashboard" >Back to Dashboard</a>
         <div className="form-container">
             <h2>Payment History</h2>
             <div>
@@ -63,6 +65,7 @@ function PaymentHistory() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

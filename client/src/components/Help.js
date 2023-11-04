@@ -26,6 +26,8 @@ function Help() {
     };
 
     return (
+        <>
+        <a href="/dashboard" className="back-to-dashboard center" >Back to Dashboard</a>
         <div className="form-container">
             <h2>Feedback and Helpdesk</h2>
             <div className="form">
@@ -67,6 +69,7 @@ function Help() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

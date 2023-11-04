@@ -114,6 +114,8 @@ function Services() {
     };
 
     return (
+        <>
+        <a href="/dashboard" className="back-to-dashboard" >Back to Dashboard</a>
         <div className="form-container">
             <h2>Services</h2>
             <div className="form form-dashboard">
@@ -173,7 +175,7 @@ function Services() {
                     <button onClick={handleSongChange}>Confirm</button>
                 </div>
             )}
-        </div>
+        </div></>
     );
 }
 
