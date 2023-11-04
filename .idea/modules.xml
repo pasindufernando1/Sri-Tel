@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Sri-Tel.iml" filepath="$PROJECT_DIR$/.idea/Sri-Tel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/micro-services/config-server/config-server.iml" filepath="$PROJECT_DIR$/micro-services/config-server/config-server.iml" />
     </modules>
   </component>
 </project>
