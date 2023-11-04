@@ -9,13 +9,17 @@ import java.util.Map;
 @RequestMapping("/telco/dataTopUp")
 public class dataTopUp {
 
-    @PostMapping("")
-    public Map<String, Object> subRoaming(@RequestBody Map<String,String> body) {
+    @PostMapping("/sub")
+    public Map<String, Object> subTopUp() {
         HashMap response = new HashMap<>();
-        response.put("UserID",body.get("userid"));
-        response.put("TopUp", body.get("amount"));
-        response.put("Message", "Topup successfully done.");
+        response.put("message","Topup successfully done.");
         return response;
     }
 
+    @PostMapping("/unsub")
+    public Map<String, Object> unsubTopUp() {
+        HashMap response = new HashMap<>();
+        response.put("message","Automatic Topup successfully done.");
+        return response;
+    }
 }

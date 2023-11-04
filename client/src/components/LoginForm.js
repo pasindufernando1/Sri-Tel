@@ -41,6 +41,7 @@ function LoginForm() {
             } else if (response.data === "User not found") {
                 alert("Login Failed. Invalid username or password.");
             } else if (response.data === "Success") {
+                alert("Login Successful!")
                 navigate('/dashboard');
             }
 

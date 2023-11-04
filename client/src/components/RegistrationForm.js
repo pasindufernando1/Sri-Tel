@@ -46,7 +46,7 @@ function RegistrationForm() {
             if (response.data === "Error") {
                 alert("Registration failed. Please provide all the details.");
             } else if (response.data === "Success") {
-                alert("Registration successful");
+                alert("Registration successful!");
                 navigateToLogin();
 
             }
