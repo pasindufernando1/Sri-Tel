@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Import Axios
 import '../styles/style.css';
 
-const register_ULR = 'http://localhost:8222/api/register';
+const register_ULR = 'http://localhost:8222/api/register/register';
 
 function RegistrationForm() {
     const [formData, setFormData] = useState({

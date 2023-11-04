@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const payment_ULR = 'http://localhost:8099/api/bill-payment';
+const payment_ULR = 'http://localhost:8222/api/bill-payment';
 
 function PayNow() {
     const [formData, setFormData] = useState({

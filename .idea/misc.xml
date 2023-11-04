@@ -20,6 +20,7 @@
         <option value="$PROJECT_DIR$/micro-services/authentication/pom.xml" />
         <option value="$PROJECT_DIR$/Sri-Tel-Provisioning/pom.xml" />
         <option value="$PROJECT_DIR$/Sri-Tel-Payment/pom.xml" />
+        <option value="$PROJECT_DIR$/micro-services/registration/pom.xml" />
       </list>
     </option>
   </component>
