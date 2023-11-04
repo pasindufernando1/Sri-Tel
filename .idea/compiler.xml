@@ -32,7 +32,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Sri-Tel-Payment" options="" />
+      <module name="Sri-Tel-Payment" options="-parameters" />
       <module name="Sri-Tel-Provisioning" options="-parameters" />
       <module name="authentication" options="-parameters" />
       <module name="bill-payment" options="-parameters" />
@@ -48,7 +48,7 @@
       <module name="ringing-tone" options="-parameters" />
       <module name="roaming" options="-parameters" />
       <module name="sms" options="-parameters" />
-      <module name="sritel" options="" />
+      <module name="sritel" options="-parameters" />
       <module name="topup" options="-parameters" />
     </option>
   </component>
