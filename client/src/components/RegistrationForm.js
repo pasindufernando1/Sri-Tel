@@ -26,27 +26,31 @@ function RegistrationForm() {
         setFormData({ ...formData, [name]: value });
     }
 
+    const requestData = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        contactNumber: formData.contactNumber,
+        password: formData.password
+    }
+
     // Handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Validate and send registration data to the server/API
-        const { firstName, lastName, email, contactNumber, password } = formData;
-
         try {
-            const response = await axios.post(register_ULR, {
-                firstName,
-                lastName,
-                email,
-                contactNumber,
-                password,
-            });
+            // const response = await axios.post(register_ULR, JSON.stringify(requestData), {headers: { 'Content-Type': 'application/json' },withCredentials: true});
 
-            // Handle response from the server (e.g., show success message, handle errors)
-            alert(response.data);
+            const response = await axios.post(register_ULR + "/" + formData.firstName + "/" + formData.lastName + "/" + formData.email + "/" + formData.password + "/" + formData.contactNumber);
 
-            // Optionally, you can navigate to a different page after successful registration
-            navigateToLogin();
+            if (response.data === "Error") {
+                alert("Registration failed. Please provide all the details.");
+            } else if (response.data === "Success") {
+                alert("Registration successful");
+                navigateToLogin();
+
+            }
+
         } catch (error) {
             console.error('Error:', error);
         }

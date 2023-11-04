@@ -6,11 +6,11 @@ public class AuthenticationModel {
     private String password;
 
     //getters and setters
-    public String getEmail(){ return Email; }
+    public String getEmail(){ return this.Email; }
 
     public void setEmail(String Email){ this.Email = Email; }
 
-    public String getPassword(){ return password; }
+    public String getPassword(){ return this.password; }
 
     public void setPassword(String password){ this.password = password; }
 }

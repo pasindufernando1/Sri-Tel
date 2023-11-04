@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/style.css'
 import axios from 'axios';
@@ -30,20 +30,37 @@ function LoginForm() {
         
         // Validate and send login data to the server/API
         const { email, password } = formData;
-    
+
+        console.log(formData);
+
         try {
-            const response = await axios.post(login_url, {
-                email,
-                password,
-            });
-            
-            alert("Login success");
-            navigate('/dashboard');
-            // Handle response from the server (e.g., authentication success, error handling)
-            console.log(response.data);
+            const response = await axios.post(login_url + "/" + email + "/" + password);
+
+            if (response.data === "No Credentials") {
+                alert("Login failed. Please provide both username and password.");
+            } else if (response.data === "User not found") {
+                alert("Login Failed. Invalid username or password.");
+            } else if (response.data === "Success") {
+                navigate('/dashboard');
+            }
+
         } catch (error) {
             console.error('Error:', error);
         }
+
+        // try {
+        //     const response = await axios.post(login_url, {
+        //         email,
+        //         password,
+        //     });
+        //
+        //     alert("Login success");
+        //     console.log(response);
+        //     // navigate('/dashboard');
+        //     // Handle response from the server (e.g., authentication success, error handling)
+        // } catch (error) {
+        //     console.error('Error:', error);
+        // }
     };
     
 
