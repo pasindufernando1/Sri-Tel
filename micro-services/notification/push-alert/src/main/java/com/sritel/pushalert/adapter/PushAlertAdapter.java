@@ -1,30 +1,22 @@
-package com.sritel.topup.adapter;
+package com.sritel.pushalert.adapter;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MessageAdapter implements Message {
-
+public class PushAlertAdapter implements PushAlert{
     @Override
-    public Mono<Map<String, Object>> topUpUser(String username, String amount) {
+    public Mono<Map<String, Object>> sendAlert(String userid) {
         WebClient webClient = WebClient.create("http://localhost:8082");
-
-        Map<String,String> body = new HashMap<>();
-        body.put("userid", username);
-        body.put("amount", amount);
 
         return Mono.fromCallable(() -> {
             String data = webClient
-                    .post()
-                    .uri("/telco/dataTopUp")
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .bodyValue(body)
+                    .get()
+                    .uri("/userNotification?userid={username}",userid)
                     .retrieve()
                     .bodyToMono(String.class)
                     .block();
@@ -33,11 +25,10 @@ public class MessageAdapter implements Message {
             JsonNode jsonNode = objectMapper.readTree(data);
 
             Map<String, Object> populatedMap = new HashMap<>();
-            populatedMap.put("reply from adapter",jsonNode.path("Message").asText());
-            populatedMap.put("TopUp-Amount from adapter",jsonNode.path("TopUp").asText());
+            populatedMap.put("Userid from adapter",jsonNode.path("UserId").asText());
+            populatedMap.put("reply from adapter",jsonNode.path("Notification").asText());
 
             return populatedMap;
         });
     }
-
 }

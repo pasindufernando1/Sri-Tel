@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class MessageAdapter implements Message{
     @Override
-    public Mono<Map<String, Object>> activateRingingTone(String username) {
+    public Mono<Map<String, Object>> activateRoaming(String username) {
         WebClient webClient = WebClient.create("http://localhost:8082");
 
         Map<String,String> body = new HashMap<>();
@@ -38,7 +38,7 @@ public class MessageAdapter implements Message{
     }
 
     @Override
-    public Mono<Map<String, Object>> deactivateRingingTone(String username) {
+    public Mono<Map<String, Object>> deactivateRoaming(String username) {
         WebClient webClient = WebClient.create("http://localhost:8082");
 
         Map<String,String> body = new HashMap<>();
