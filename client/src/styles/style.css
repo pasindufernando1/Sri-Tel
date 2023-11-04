@@ -50,7 +50,7 @@ td, th {
 
 .chat-container {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 0 auto 5rem auto;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -102,4 +102,5 @@ td, th {
 
 .default-questions button{
     margin-right: 10px;
+    margin-bottom: 10px;
 }
