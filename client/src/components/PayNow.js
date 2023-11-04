@@ -94,7 +94,7 @@ function PayNow() {
         <div>
             <h2>Payment Details</h2>
             <div>
-                <p>Bill Number: {billData.billNo}</p>
+                <p>Bill Number: {billData.billNumber}</p>
                 <p>Bill Name: {billData.billName}</p>
                 <p>Due Date: {billData.dueDate}</p>
                 <p>Amount: {billData.amount}</p>
@@ -105,7 +105,7 @@ function PayNow() {
                         <label>Name:</label>
                         <input
                             type="text"
-                            name="userName"
+                            name="cardHolderName"
                             value={formData.cardHolderName}
                             onChange={handleInputChange}
                             required
@@ -125,7 +125,7 @@ function PayNow() {
                         <label>Expiration (mm/yy):</label>
                         <input
                             type="text"
-                            name="expirationDate"
+                            name="cardExpiry"
                             value={formData.cardExpiry}
                             onChange={handleInputChange}
                             required
@@ -135,7 +135,7 @@ function PayNow() {
                         <label>Security Code:</label>
                         <input
                             type="text"
-                            name="cvv"
+                            name="cardCVV"
                             value={formData.cardCVV}
                             onChange={handleInputChange}
                             required
