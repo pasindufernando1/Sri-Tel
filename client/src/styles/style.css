@@ -12,7 +12,7 @@
 }
 
 .form input {
-    width: 100%;
+    width: 98%;
     margin-bottom: 10px;
 }
 
@@ -116,4 +116,11 @@ td, th {
     display: grid;
     margin: auto;
     margin-top: 1rem;
+}
+
+.cardExpiry {
+    display: flex;
+    column-gap: 1rem;
+    width: 31%;
+    margin-top: 5px;
 }

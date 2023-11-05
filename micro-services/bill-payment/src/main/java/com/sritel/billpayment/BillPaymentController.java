@@ -12,7 +12,8 @@ public class BillPaymentController {
 
     private final String sampleCardNumber = "1234567812345678";
     private final String sampleCardHolderName = "Ravindu Wegiriya";
-    private final String sampleCardExpiry = "12/25";
+    private final String sampleCardExpiryMonth = "12";
+    private final String sampleCardExpiryYear = "25";
     private final String sampleCardCVV = "123";
 
     @PostMapping("/initiate-payment")
@@ -27,13 +28,15 @@ public class BillPaymentController {
     public String verifyCard(@RequestBody Map<String, String> cardDetails) {
         String cardNumber = cardDetails.get("cardNumber");
         String cardHolderName = cardDetails.get("cardHolderName");
-        String cardExpiry = cardDetails.get("cardExpiry");
+        String cardExpiryMonth = cardDetails.get("cardExpiryMonth");
+        String cardExpiryYear = cardDetails.get("cardExpiryYear");
         String cardCVV = cardDetails.get("cardCVV");
 
         // Compare the received card details with the sample card
         if (cardNumber.equals(sampleCardNumber) &&
                 cardHolderName.equals(sampleCardHolderName) &&
-                cardExpiry.equals(sampleCardExpiry) &&
+                cardExpiryMonth.equals(sampleCardExpiryMonth) &&
+                cardExpiryYear.equals(sampleCardExpiryYear) &&
                 cardCVV.equals(sampleCardCVV)) {
             return "Payment accepted";
         } else {

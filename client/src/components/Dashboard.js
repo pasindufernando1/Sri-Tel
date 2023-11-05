@@ -37,7 +37,7 @@ function Dashboard() {
     return (
         <div className="form-container">
             <h2>Dashboard</h2>
-            <p>Welcome User's Name</p>
+            <p>Welcome John :)</p>
             <div className="form form-dashboard">
                 <div>
                     <button onClick={navigateToServices}>Services</button>
