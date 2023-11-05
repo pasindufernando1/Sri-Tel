@@ -19,7 +19,6 @@
         <module name="discovery" />
         <module name="sms" />
         <module name="bill-payment" />
-        <module name="Sri-Tel-Payment" />
         <module name="registration" />
         <module name="gateway" />
         <module name="email" />
@@ -28,6 +27,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="registartion" target="17" />
+      <module name="Sri-Tel-Payment" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

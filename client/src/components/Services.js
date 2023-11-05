@@ -48,9 +48,9 @@ function Services() {
                 }
                 setData([...updatedData]);
 
-                // const response = await axios.post(`http://localhost:8082/telco/dataTopUp/unsub`);
+                const response = await axios.post(`http://localhost:8082/telco/dataTopUp/unsub/${selectedDataTopUp}`);
 
-                // alert(response.data.message);
+                alert(response.data.message);
                 setDataTopUpsStatus("Deactivate");
 
             } else {
@@ -175,8 +175,8 @@ function Services() {
         console.log(selectedDataTopUp);
         
         try {
-            // const response = await axios.post(`http://localhost:8082/telco/dataTopUp/sub/${selectedDataTopUp}`);
-            // alert(response.data.message);
+            const response = await axios.post(`http://localhost:8082/telco/dataTopUp/sub/${selectedDataTopUp}`);
+            alert(response.data.message);
     
             // Hide the data top up selector
             SetDataTopUpSelector(false);

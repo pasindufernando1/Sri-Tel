@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/bill-payment")
 @RequiredArgsConstructor
@@ -23,21 +24,20 @@ public class BillPaymentController {
         return "User " + username + " is making a payment of Rs. " + paymentValue;
     }
 
-    @PostMapping("/verify-card")
-    public String verifyCard(@RequestBody Map<String, String> cardDetails) {
-        String cardNumber = cardDetails.get("cardNumber");
-        String cardHolderName = cardDetails.get("cardHolderName");
-        String cardExpiry = cardDetails.get("cardExpiry");
-        String cardCVV = cardDetails.get("cardCVV");
+    @PostMapping("/verify-card/{cardNumber}/{cardHolderName}/{cardExpiry}/{cardCVV}")
+    public String verifyCard(@PathVariable String cardNumber,
+                             @PathVariable String cardHolderName,
+                             @PathVariable String cardExpiry,
+                             @PathVariable String cardCVV) {
 
         // Compare the received card details with the sample card
         if (cardNumber.equals(sampleCardNumber) &&
                 cardHolderName.equals(sampleCardHolderName) &&
                 cardExpiry.equals(sampleCardExpiry) &&
                 cardCVV.equals(sampleCardCVV)) {
-            return "Payment accepted";
+            return "Card Verified, Payment accepted";
         } else {
-            return "Payment failed";
+            return "Invalid Card Details, Payment failed, ";
         }
     }
 

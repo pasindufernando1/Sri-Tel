@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const payment_ULR = 'http://localhost:8222/api/bill-payment';
+const payment_ULR = 'http://localhost:8222/api/bill-payment/verify-card';
 
 function PayNow() {
     const [formData, setFormData] = useState({
@@ -65,23 +65,18 @@ function PayNow() {
     }
 
     // Handle form submission
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         // Validate and send registration data to the server/API
         const { cardHolderName, cardNumber, cardExpiry, cardCVV,} = formData;
-
+        // alert(payment_ULR + "/" + cardNumber + "/" + cardHolderName + "/" + cardExpiry + "/" + cardCVV);
         try {
-            const response = axios.post(payment_ULR, {
-                cardHolderName,
-                cardNumber,
-                cardExpiry,
-                cardCVV,
-            });
-
+            const response = await axios.post(payment_ULR + "/" + cardNumber + "/" + cardHolderName + "/" + cardExpiry + "/" + cardCVV);
+            
             // Handle response from the server (e.g., show success message, handle errors)
             alert(response.data);
-
+            showConfirmation();
             // Optionally, you can navigate to a different page after successful registration
             navigate('/bills');
         } catch (error) {
@@ -143,7 +138,7 @@ function PayNow() {
                             required
                         />
                     </div><br />
-                    <button onClick={showConfirmationDialog}>Pay now</button><br />
+                    <button onClick={handleSubmit}>Pay now</button><br />
                 </form>
                 {/* Confirmation Dialog */}
                 {showConfirmation && (
