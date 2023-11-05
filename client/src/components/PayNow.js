@@ -8,7 +8,8 @@ function PayNow() {
     const [formData, setFormData] = useState({
         cardHolderName: '',
         cardNumber: '',
-        cardExpiry: '',
+        cardExpiryMonth: '',
+        cardExpiryYear: '',
         cardCVV: '',
     });
 
@@ -35,7 +36,7 @@ function PayNow() {
     // Function to show the confirmation dialog
     const showConfirmationDialog = () => {
         // Check if any of the form fields is empty
-        if (!formData.cardHolderName || !formData.cardNumber || !formData.cardExpiry || !formData.cardCVV) {
+        if (!formData.cardHolderName || !formData.cardNumber || !formData.cardExpiryMonth || !formData.cardExpiryYear || !formData.cardCVV) {
             // You can show an error message or handle this case as needed
             alert("Please fill in all the required fields before proceeding.");
         } else {
@@ -69,10 +70,10 @@ function PayNow() {
         event.preventDefault();
 
         // Validate and send registration data to the server/API
-        const { cardHolderName, cardNumber, cardExpiry, cardCVV,} = formData;
+        const { cardHolderName, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV,} = formData;
         // alert(payment_ULR + "/" + cardNumber + "/" + cardHolderName + "/" + cardExpiry + "/" + cardCVV);
         try {
-            const response = await axios.post(payment_ULR + "/" + cardNumber + "/" + cardHolderName + "/" + cardExpiry + "/" + cardCVV);
+            const response = await axios.post(payment_ULR + "/" + cardNumber + "/" + cardHolderName + "/" + cardExpiryMonth + "/" + cardExpiryYear + cardCVV);
             
             // Handle response from the server (e.g., show success message, handle errors)
             alert(response.data);
@@ -120,13 +121,24 @@ function PayNow() {
                     </div>
                     <div>
                         <label>Expiration (mm/yy):</label>
-                        <input
-                            type="text"
-                            name="cardExpiry"
-                            value={formData.cardExpiry}
-                            onChange={handleInputChange}
-                            required
-                        />
+                        <div className="cardExpiry">
+                            <input
+                                type="text"
+                                name="cardExpiryMonth"
+                                placeholder='MM'
+                                value={formData.cardExpiryMonth}
+                                onChange={handleInputChange}
+                                required
+                            />/
+                            <input
+                                type="text"
+                                name="cardExpiryYear"
+                                placeholder='YY'
+                                value={formData.cardExpiryYear}
+                                onChange={handleInputChange}
+                                required
+                            />
+                        </div>
                     </div>
                     <div>
                         <label>Security Code:</label>
