@@ -77,7 +77,6 @@ function PayNow() {
             
             // Handle response from the server (e.g., show success message, handle errors)
             alert(response.data);
-            showConfirmation();
             // Optionally, you can navigate to a different page after successful registration
             navigate('/bills');
         } catch (error) {

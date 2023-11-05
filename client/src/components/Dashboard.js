@@ -49,7 +49,7 @@ function Dashboard() {
                     <button onClick={navigateToChat}>Chat</button>
                 </div>
                 <div>
-                    <button onClick={navigateToNotifications}>Notifications - <label>2</label></button>
+                    <button onClick={navigateToNotifications}>Notifications - <label>3</label></button>
                 </div>
                 <div>
                     <button onClick={navigateToProfile}>Profile</button>
