@@ -73,7 +73,7 @@ function PayNow() {
         const { cardHolderName, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV,} = formData;
         // alert(payment_ULR + "/" + cardNumber + "/" + cardHolderName + "/" + cardExpiry + "/" + cardCVV);
         try {
-            const response = await axios.post(payment_ULR + "/" + cardNumber + "/" + cardHolderName + "/" + cardExpiryMonth + "/" + cardExpiryYear + cardCVV);
+            const response = await axios.post(payment_ULR + "/" + cardNumber + "/" + cardHolderName + "/" + cardExpiryMonth + "/" + cardExpiryYear + "/" + cardCVV);
             
             // Handle response from the server (e.g., show success message, handle errors)
             alert(response.data);
