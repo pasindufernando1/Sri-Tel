@@ -14,11 +14,11 @@ public class ringingTone {
     public Map<String, Object> subRingTone(@PathVariable String toneid) {
         HashMap response = new HashMap<>();
         if(toneid.equals("1"))
-            response.put("message","Subscribed to ringing tone Song 1") ;
+            response.put("message","Subscribed to ringing tone: Mahada Namathi Wana Bambara") ;
         else if(toneid.equals("2"))
-            response.put("message","Subscribed to ringing tone Song 2") ;
+            response.put("message","Subscribed to ringing tone: Bambara Wage Visekaraya") ;
         else if(toneid.equals("3"))
-            response.put("message","Subscribed to ringing tone Song 3") ;
+            response.put("message","Subscribed to ringing tone: Nim Him Sewwa") ;
         else
             response.put("message","Did not subscribe to ringing tone") ;
 
